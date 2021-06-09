@@ -1,18 +1,19 @@
 package service;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import model.Person;
 
 public class AddressBook {
     private static Scanner scan = new Scanner(System.in);
+    static List<Person> personList = new ArrayList<>();
 
     /**
-     * create contacts
-     * Which adds personal details
+     * Adds new Contact to Address book
      */
-    public static void createContacts() {
+    public static void add() {
         Person person = new Person();
         System.out.println("Enter First Name");
         person.setFirstname(scan.next());
@@ -32,6 +33,7 @@ public class AddressBook {
         person.setEmail(scan.next());
         System.out.println("-------------");
 
+        personList.add(person);
     }
 
     public static void main(String[] args) {
@@ -43,7 +45,8 @@ public class AddressBook {
             int userInput = scan.nextInt();
             switch (userInput) {
                 case 1:
-                    createContacts();
+                    //add
+                    add();
                     break;
                 case 2:
                     //edit
@@ -57,6 +60,7 @@ public class AddressBook {
                     break;
                 case 5:
                     //showContact
+                    System.out.println(personList);
                     break;
                 default:
 

@@ -65,7 +65,7 @@ public class AddressBook {
             person.setZip(scan.nextInt());
             System.out.println("Enter Phone");
             person.setPhone(scan.nextInt());
-            System.out.println("Enter Email1");
+            System.out.println("Enter Email");
             person.setEmail(scan.nextLine());
 
             for (int j = 0; j < personList.size(); j++) {
@@ -74,6 +74,22 @@ public class AddressBook {
                 }
             }
             System.out.println(personList);
+        }
+    }
+
+    /**
+     * Delete a person using their name
+     */
+    private static void delete() {
+        System.out.println("Enter first name of the person to delete ");
+        String firstName = scan.next();
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getFirstname().equalsIgnoreCase(firstName)) {
+                personList.remove(i);
+                System.out.println("Deleted Successfully");
+            } else {
+                System.out.println("Record not found");
+            }
         }
     }
 
@@ -95,9 +111,9 @@ public class AddressBook {
                     break;
                 case 3:
                     //delete
+                    delete();
                     break;
                 case 4:
-                    //delete
                     isExit = true;
                     break;
                 case 5:

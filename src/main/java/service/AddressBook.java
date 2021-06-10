@@ -93,36 +93,23 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Adding new contact to address book
+     * ie. If the user wants to add multiple contact details
+     */
     public static void main(String[] args) {
-
+        AddressBook book = new AddressBook();
         boolean isExit = false;
 
         while (!isExit) {
-            System.out.println("Enter option 1.Add\n2.Edit\n3.Delete\n4.Exit\n5.ShowContact");
-            int userInput = scan.nextInt();
-            switch (userInput) {
-                case 1:
-                    //add
-                    add();
-                    break;
-                case 2:
-                    //edit
-                    edit();
-                    break;
-                case 3:
-                    //delete
-                    delete();
-                    break;
-                case 4:
-                    isExit = true;
-                    break;
-                case 5:
-                    //showContact
-                    System.out.println(personList);
-                    break;
-                default:
-
-                    break;
+            System.out.println("Do you want to add contact");
+            Scanner scan = new Scanner(System.in);
+            char choice = scan.next().charAt(0);
+            if ((choice == 'y') || (choice == 'Y')) {
+                book.add();
+            } else {
+                isExit = true;
+                break;
             }
         }
     }
